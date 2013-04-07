@@ -22,10 +22,12 @@ all: test1
 #	$(STRIP) $@	
 test1: test1.c
 	$(CC) $(CFLAGS) -I$(LIB_DIR)/include -g  -c $<
-	$(LD) -m elf_x86_64 -static -o $@ -L$(LIB_DIR)/usr/lib -L$(LIB_DIR)/lib $(LIB_DIR)/usr/lib/crt1.o $(LIB_DIR)/usr/lib/crti.o test1.o -lpthread -lm -lrt -lc $(LIBGCC)  $(LIB_DIR)/usr/lib/crtn.o
+	$(LD) -m elf_x86_64 -T ../user_amd64.ld -static -o $@ -L$(LIB_DIR)/usr/lib -L$(LIB_DIR)/lib $(LIB_DIR)/usr/lib/crt1.o $(LIB_DIR)/usr/lib/crti.o test1.o -lpthread -lm -lrt -lc $(LIBGCC)  $(LIB_DIR)/usr/lib/crtn.o
 
 test_s: test1
 	$(STRIP) -o test_s $^
+
+a: *.o
 
 .PHONY: strip clean
 strip: test_s
