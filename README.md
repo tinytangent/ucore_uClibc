@@ -4,21 +4,10 @@ uClibc - compiling user space program
 Compile uClibc
 =======================
 
-cp ./uclibc_config.linuxthread ./uClibc-0.9.33/.config
-
-cd ./uClibc-0.9.33/
-
-make menuconfig
-
-Target Arch Features and Options -> Linux kernel header locate
-set to `pwd`/../linux_header_x86_64.2.6.38/include (MUST enter fullpath!)
-
-Library Installation Options
-uClibc runtime libarary directory: `pwd`/install (MUST enter fullpath!)
-uClibc development env dir: `pwd`/../install/usr (MUST enter fullpath!)
-
-make -j6
-make install
+	cp ./config-uclib.x86_64 ./uClibc-0.9.33/.config
+	cd ./uClibc-0.9.33/
+	make -j6
+	make install
 
 Install will be successful if ./install/ directory is created
 
