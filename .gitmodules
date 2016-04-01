@@ -1,0 +1,3 @@
+[submodule "uClibc"]
+	path = uClibc
+	url = https://github.com/fuse-on-ucore/uClibc
