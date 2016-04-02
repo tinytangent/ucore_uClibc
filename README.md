@@ -4,8 +4,8 @@ uClibc - compiling user space program
 Compile uClibc
 =======================
 
-	cp ./config-uclib.x86_64 ./uClibc-0.9.33/.config
-	cd ./uClibc-0.9.33/
+	cp ./config-uclib.x86_64 ./uClibc/.config
+	cd ./uClibc/
 	make -j6
 	make install
 

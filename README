@@ -1,8 +1,8 @@
 uClibc
 
-cp ./uclibc_config.linuxthread ./uClibc-0.9.33/.config
+cp ./uclibc_config.linuxthread ./uClibc/.config
 
-cd ./uClibc-0.9.33/
+cd ./uClibc/
 
 make menuconfig
 

@@ -5,7 +5,7 @@ STRIP=$(CROSS_COMPILE)strip
 
 LIBGCC=$(shell $(CC) --print-file-name libgcc.a)
 
-UCLIBC_DIR=uClibc-0.9.33
+UCLIBC_DIR=uClibc
 TEST_SRC_ROOT=$(UCLIBC_DIR)/test
 LIB_DIR := install
 CFLAGS += -fno-builtin -nostdinc -nostdlib -fno-stack-protector -nostartfiles
@@ -14,7 +14,7 @@ CFLAGS += -isystem $(GCCSYSTEM_DIR)/include
 CFLAGS += -I$(GCCSYSTEM_DIR)/include-fixed
 CFLAGS += -I$(LIB_DIR)/usr/include
 #CFLAGS += -march=armv5
-CFLAGS += -Ilinux_header_x86_64.2.6.38/include 
+CFLAGS += -Ilinux_header_x86_64.2.6.38/include
 
 
 all: install tests
@@ -57,5 +57,3 @@ $(foreach bdir, $(USER_APPS),$(eval $(call make-user-app,$(bdir))))
 clean:
 	rm -rf install rootfs
 	find $(TEST_SRC_ROOT) -name *.o -exec rm -f {} \;
-	
-
